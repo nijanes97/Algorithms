@@ -3,7 +3,19 @@
 import argparse
 
 def find_max_profit(prices):
-  pass
+  profits = []
+
+  for i in range(len(prices)):
+    for j in range(i + 1, len(prices)):
+      profits.append({"first": prices[i], "second": prices[j], "value": prices[j] - prices[i]})
+  
+  maximum = profits[0]["value"]
+
+  for i in range(len(profits)):
+    if profits[i]['value'] > maximum:
+      maximum = profits[i]['value']
+
+  return maximum
 
 
 if __name__ == '__main__':

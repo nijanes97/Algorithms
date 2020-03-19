@@ -3,7 +3,16 @@
 import math
 
 def recipe_batches(recipe, ingredients):
-  pass 
+  min_batches = 999999999999
+
+  if len(recipe) > len(ingredients):
+    return 0
+
+  for i in ingredients:
+    if min_batches > ingredients[i] / recipe[i]:
+      min_batches = int(ingredients[i] / recipe[i])
+
+  return min_batches
 
 
 if __name__ == '__main__':

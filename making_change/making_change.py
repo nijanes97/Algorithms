@@ -3,7 +3,14 @@
 import sys
 
 def making_change(amount, denominations):
-  pass 
+  num = [1] + [0] * amount
+  
+  for i in denominations:
+    for j in range(i, amount + 1):
+      num[j] += num[j - i]
+
+  return num[amount]
+  
 
 
 if __name__ == "__main__":
